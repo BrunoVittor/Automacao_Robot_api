@@ -74,4 +74,11 @@ Realizar login
     ${body}    Create Dictionary    
     ...    email=${email}    
     ...    password=1234    
-    POST On Session    alias=servrest    url=/login    json=${body}
+    
+    ${login_data}    POST On Session    alias=servrest    url=/login    json=${body}
+    Set Test Variable    ${login_data}    ${login_data.json()}
+
+Conferir se o Login ocorreu com sucesso
+    Log  ${login_data}
+    Dictionary Should Contain Item  ${login_data}  message  Login realizado com sucesso
+    Dictionary Should Contain Key   ${login_data}  authorization

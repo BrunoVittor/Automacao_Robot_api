@@ -23,3 +23,4 @@ Cenário 4: Realizando login com usuário cadastrado
     Criar um novo usuario
     Cadastrar usuario no site serverest.dev    ${USER_EMAIL}    201
     Realizar login                             ${USER_EMAIL}
+    Conferir se o Login ocorreu com sucesso
